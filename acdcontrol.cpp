@@ -58,6 +58,7 @@ const int CINEMA_DISPLAY_23_NEW           = 0x9218;
 const int CINEMA_DISPLAY_20_OLD           = 0x9219;
 const int CINEMA_DISPLAY_20_NEW           = 0x9219;
 const int CINEMA_DISPLAY_24               = 0x921e;
+const int CINEMA_DISPLAY_27               = 0x9226;
 const int CINEMA_DISPLAY_30               = 0x9232;
 
 const int S1                              = 0x8002;
@@ -486,7 +487,7 @@ int main (int argc, char **argv) {
       if ( mode == SETREL ) {
         brightness = usage_ref.value + amount;
         brightness = max( 0, brightness);
-        brightness = min( 255, brightness);
+        brightness = min( 750, brightness);
         usage_ref.value = brightness;
         
         /* set calculated brightness */
@@ -538,6 +539,9 @@ void init_device_database() {
                                      "Apple Cinema Display 23\" (old)" ));
   supportedDevices.insert( DeviceId( APPLE, CINEMA_DISPLAY_24,
                                      "Apple Cinema Display 24\"" ));
+
+  supportedDevices.insert( DeviceId( APPLE, CINEMA_DISPLAY_27,
+                                     "Apple Cinema HD Display 27\"" ));
   supportedDevices.insert( DeviceId( APPLE, CINEMA_DISPLAY_30,
                                      "Apple Cinema HD Display 30\"" ));
 
